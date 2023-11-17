@@ -14,7 +14,7 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       if isUserLoggedIn {
-        NotesListView()
+          NotesListView(isLoggedIn: $isUserLoggedIn)
       } else {
         AuthView()
       }

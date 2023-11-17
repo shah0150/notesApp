@@ -65,5 +65,17 @@ class NotesModel: ObservableObject {
       }
     }
   }
+    
+    func deleteNote(note: Note) {
+        let ref = notesCollectionRef.document(note.id)
+        
+        ref.delete() { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Note deleted.")
+            }
+        }
+    }
 }
 
